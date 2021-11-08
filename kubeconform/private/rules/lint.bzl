@@ -72,7 +72,7 @@ def _impl(ctx):
     cmd += ["-output", ctx.attr.output]
 
     for f in ctx.files.srcs:
-        cmd += [f.path]
+        cmd += [f.short_path]
 
     executable = ctx.actions.declare_file(ctx.label.name)
     ctx.actions.write(output = executable, content = " ".join(cmd))
