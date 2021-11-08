@@ -1,0 +1,11 @@
+load("//kubeconform:defs.bzl", "kubeconform_lint_test")
+
+kubeconform_lint_test(
+    name = "lint",
+    srcs = glob(["*.yaml"]),
+    schema_locations = [
+        "@kubernetes_json_schema//:schemas",
+        "//example/schemas:schemas",
+    ],
+    strict = True,
+)
