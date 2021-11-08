@@ -44,12 +44,6 @@ PLATFORMS = {
             "@platforms//cpu:arm64",
         ],
     ),
-    "linux-armv6": struct(
-        compatible_with = [
-            "@platforms//os:linux",
-            "@platforms//cpu:armv6-m",
-        ],
-    ),
     "linux-386": struct(
         compatible_with = [
             "@platforms//os:linux",
@@ -66,12 +60,6 @@ PLATFORMS = {
         compatible_with = [
             "@platforms//os:windows",
             "@platforms//cpu:arm64",
-        ],
-    ),
-    "windows-armv6": struct(
-        compatible_with = [
-            "@platforms//os:windows",
-            "@platforms//cpu:armv6-m",
         ],
     ),
     "windows-386": struct(
