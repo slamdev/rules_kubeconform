@@ -35,6 +35,8 @@ def _kubeconform_toolchain_impl(ctx):
     # See https://docs.bazel.build/versions/main/be/make-variables.html#custom_variables
     template_variables = platform_common.TemplateVariableInfo({
         "KUBECONFORM_BIN": target_tool_path,
+        # Variable to use with disabled legacy_external_runfiles
+        "KUBECONFORM_RUNFILES_BIN": target_tool_path.replace("external/", "../", 1)
     })
     default = DefaultInfo(
         files = depset(tool_files),

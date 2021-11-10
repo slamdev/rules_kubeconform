@@ -45,7 +45,7 @@ _ATTRS = {
 }
 
 def _impl(ctx):
-    cmd = [ctx.var["KUBECONFORM_BIN"]]
+    cmd = [ctx.var["KUBECONFORM_RUNFILES_BIN"]]
     for p in ctx.attr.ignore_filename_patterns:
         cmd += ["-ignore-filename-pattern", p]
     if ctx.attr.ignore_missing_schemas:
@@ -63,7 +63,7 @@ def _impl(ctx):
 
     dirs = []
     for schema in ctx.files.schema_locations:
-        dirs += [schema.dirname]
+        dirs += [schema.dirname.replace("external/", "../", 1)]
     dirs = collections.uniq(dirs)
     for d in dirs:
         cmd += ["-schema-location", "'" + "/".join([d, "{{ .ResourceKind }}{{ .KindSuffix }}.json"]) + "'"]
