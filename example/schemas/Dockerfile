@@ -1,4 +1,4 @@
-FROM python:3.9.7-alpine3.14
+FROM python:3.10.4-alpine3.14
 
 ENV FILENAME_FORMAT='{kind}-{group}-{version}'
 
